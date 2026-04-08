@@ -9,6 +9,7 @@ import EventModal from "./EventModel";
 import QuotePanel from "./QuotePanel";
 import ThemePicker from "./ThemePicker";
 import HolidayList from "./HolidayList";
+import NotesPanel from "./NotesPanel";
 
 import { MONTH_IMAGES } from "../../hooks/useCalendar";
 import { useEvents } from "../../hooks/useEvents";
@@ -92,48 +93,43 @@ export default function Calendar() {
           ))}
         </div>
 
-       <div className={`rounded-b-2xl shadow-2xl overflow-hidden border ${cardBg}`}>
+        <div className={`rounded-b-2xl shadow-2xl overflow-hidden border ${cardBg}`}>
 
-  <div className="relative h-52 md:h-64">
-    <img src={heroImage} className="w-full h-full object-cover" />
-
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-    <div className="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-      
-      <div>
-        <p className="text-white/70 text-sm">{year}</p>
-        <h2 className="text-white text-4xl font-black">{MONTH_NAMES[month]}</h2>
-      </div>
-
-      <div className="flex gap-3">
-        <button
-          onClick={() => changeMonth(-1)}
-          className="w-12 h-12 rounded-full bg-white/90 text-black flex items-center justify-center text-2xl font-bold shadow-xl backdrop-blur-md transition hover:bg-white hover:scale-110 active:scale-95"
-        >
-          ←
-        </button>
-
-        <button
-          onClick={() => changeMonth(1)}
-          className="w-12 h-12 rounded-full bg-white/90 text-black flex items-center justify-center text-2xl font-bold shadow-xl backdrop-blur-md transition hover:bg-white hover:scale-110 active:scale-95"
-        >
-          →
-        </button>
-      </div>
-
-    </div>
-  </div>
-
+          <div className="relative h-52 md:h-64">
+            <img src={heroImage} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+              <div>
+                <p className="text-white/70 text-sm">{year}</p>
+                <h2 className="text-white text-4xl font-black">{MONTH_NAMES[month]}</h2>
+              </div>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => changeMonth(-1)}
+                  className="w-12 h-12 rounded-full bg-white/90 text-black flex items-center justify-center text-2xl font-bold shadow-xl backdrop-blur-md transition hover:bg-white hover:scale-110 active:scale-95"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={() => changeMonth(1)}
+                  className="w-12 h-12 rounded-full bg-white/90 text-black flex items-center justify-center text-2xl font-bold shadow-xl backdrop-blur-md transition hover:bg-white hover:scale-110 active:scale-95"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
 
           <div className="flex flex-col lg:flex-row">
 
+            {/* Left sidebar */}
             <aside className={`w-full lg:w-72 p-4 ${sidebarBg}`}>
               <QuotePanel quote={quote} onNext={nextQuote} isDark={isDark} accentColor={config.accent} />
               <ThemePicker theme={theme} isDark={isDark} onTheme={setTheme} onToggleDark={toggleDark} />
               <HolidayList year={year} month={month} isDark={isDark} accentColor={config.accent} />
             </aside>
 
+            {/* Calendar grid */}
             <div className="flex-1 p-5">
               <CalendarGrid
                 date={currentDate}
@@ -143,7 +139,8 @@ export default function Calendar() {
               />
             </div>
 
-            <div className="w-full md:w-72">
+            {/* Right panel: Events + Notes stacked */}
+            <div className="w-full lg:w-72 flex flex-col divide-y divide-gray-100">
               <EventPanel
                 date={selectedDay}
                 events={dayEvents}
@@ -151,7 +148,9 @@ export default function Calendar() {
                 onEdit={openEditModal}
                 onDelete={deleteEvent}
               />
+              <NotesPanel selectedDate={selectedDay} isDark={isDark} />
             </div>
+
           </div>
         </div>
       </div>

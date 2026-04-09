@@ -1,41 +1,101 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Calendar App
 
-## Getting Started
+A sleek, interactive calendar application built using **Next.js**, designed to make planning your days more enjoyable, aesthetic, and efficient.
 
-First, run the development server:
+---
+
+## Features
+
+* Monthly calendar view
+* Add / Edit / Delete events
+* Multiple themes (default, lofi, minimalist, cyberpunk)
+* Light / Dark mode toggle
+* Daily motivational quotes (API-based)
+* Holiday highlights
+* Dynamic background images based on month
+
+---
+
+## Ideation
+
+This project was built with the goal of combining **productivity with aesthetics**.
+
+### Core Ideas:
+
+* Go beyond a basic calendar to make it visually engaging
+* Provide a theme-driven experience
+* Ensure smooth UI interactions
+* Simulate real-world apps like Google Calendar
+
+---
+
+## Tech Stack
+
+* **Frontend:** Next.js, React, TypeScript
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **Deployment:** Vercel
+
+---
+
+## How to Run Locally
 
 ```bash
+# Clone the repository
+git clone https://github.com/dipsonishikha/Calendar.git
+
+# Navigate into the project
+cd Calendar
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Live Demo
 
-## Learn More
+https://your-vercel-link.vercel.app
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+ ├── components/
+ │   ├── Calendar/
+ │   ├── EventPanel/
+ │   ├── ThemePicker/
+ │   └── QuotePanel/
+ ├── hooks/
+ ├── types/
+ └── utils/
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Calendar
-Task work for internship
->>>>>>> 8c0435733b8c9ded972cc1bb68da069999f1eb6b
+* User authentication (login/signup)
+* Cloud-based event storage (MongoDB / Firebase)
+* Mobile gesture support
+* Google Calendar integration
+* Productivity analytics dashboard
+
+---
+
+## Author
+
+Dipshikha Soni
+
+---
+
+## Support
+
+If you like this project, consider giving it a star on GitHub.
